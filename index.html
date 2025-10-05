@@ -3,162 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlashClean — Libérateur de Mémoire PC</title>
+<title>Ultimate Twix — Optimiseur PC Ultra-Max</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  /* ---------- COLORS & VARIABLES ---------- */
   :root{
-    --bg1: #0b0f2a;
-    --bg2: #1a1f3c;
-    --accent1: #00e5ff;
-    --accent2: #ff2975;
-    --neon: rgba(0,229,255,0.14);
+    --bg1:#0b1020; --bg2:#0f2040; --accent1:#7b5cff; --accent2:#00e0a1;
+    --glass: rgba(255,255,255,0.04);
   }
-
-  /* ---------- GLOBAL ---------- */
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body, html{height:100%;font-family:Inter,system-ui,sans-serif;color:#e6f3ff;overflow:hidden;background:linear-gradient(180deg,var(--bg1),var(--bg2));}
-  main{display:flex;justify-content:center;align-items:center;height:100%;padding:24px;position:relative;}
-
-  /* ---------- PARTICLES ---------- */
-  canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
-
-  /* ---------- CARD ---------- */
-  .card{
-    position:relative;z-index:1;
-    width:100%;max-width:960px;
-    display:grid;grid-template-columns:1fr 380px;gap:28px;
-    padding:32px;border-radius:20px;
-    background:rgba(255,255,255,0.05);backdrop-filter:blur(12px) saturate(150%);
-    border:1px solid rgba(255,255,255,0.08);
-    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Inter',sans-serif;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(123,92,255,0.12), transparent),
+                radial-gradient(800px 400px at 90% 90%, rgba(0,224,161,0.06), transparent),
+                linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#eaf2ff; display:flex; justify-content:center; align-items:center; padding:40px;
   }
-
-  /* ---------- LEFT CONTENT ---------- */
-  .hero h1{font-size:2.8em;margin-bottom:16px;text-shadow:0 4px 20px rgba(0,0,0,0.7);}
-  .hero p{margin-bottom:20px;font-size:1.2em;opacity:0.9;}
-  .features{list-style:none;display:grid;gap:12px;}
-  .features li{display:flex;align-items:center;gap:12px;font-size:14px;background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;}
-  .features .dot{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent1);box-shadow:0 4px 12px rgba(0,0,0,0.4);}
-
-  /* ---------- RIGHT PANEL ---------- */
-  .panel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:18px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);}
-  .preview{width:100%;height:140px;border-radius:12px;background:linear-gradient(90deg, rgba(0,0,0,0.18), rgba(255,255,255,0.02));display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;border:1px solid rgba(255,255,255,0.03);}
-  .preview small{opacity:0.7;}
-  .stats{display:flex;gap:10px;margin-top:8px;}
-  .stat{padding:6px 10px;border-radius:8px;background:rgba(0,0,0,0.16);font-weight:600;font-size:12px;}
-
-  /* ---------- NEON BUTTON ---------- */
-  .neon-btn{position:relative;overflow:visible;border:0;padding:16px 32px;border-radius:14px;font-weight:800;font-size:16px;cursor:pointer;color:#051427;background:linear-gradient(90deg,#ffffff,#fffbcc);width:100%;box-shadow:0 12px 36px rgba(0,0,0,0.5),0 0 40px var(--neon);transition:transform .2s,box-shadow .2s;}
-  .neon-btn:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.6),0 0 80px var(--neon);}
-  .neon-btn:active{transform:translateY(-2px);}
-  .glow{position:absolute;inset:-8px;border-radius:16px;filter:blur(22px);opacity:0.8;pointer-events:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));mix-blend-mode:screen;}
-
-  /* ---------- FOOTER ---------- */
-  .warn{font-size:12px;color:#ffd3d9;margin-top:6px;font-weight:700;text-align:center;}
-  .footnote{font-size:12px;color:#a9dff7;opacity:0.9;text-align:center;margin-top:8px;}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:900px){.card{grid-template-columns:1fr;gap:20px;}}
+  .container{
+    max-width:980px; width:100%; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    padding:28px; border-radius:20px; box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    display:grid; grid-template-columns: 420px 1fr; gap:24px;
+  }
+  h1{margin:0; font-size:24px;}
+  p.lead{margin:0 0 12px 0; font-size:13px; color:#d6e6ff88;}
+  .btn{
+    padding:12px 18px; border-radius:12px; font-weight:700;
+    background: linear-gradient(90deg,var(--accent2),var(--accent1));
+    color:#021; text-decoration:none; display:inline-block; margin-top:12px; cursor:pointer;
+    transition: transform .15s ease; text-align:center;
+  }
+  .btn:hover{transform:translateY(-4px);}
+  .feature-list{margin-top:12px; display:grid; gap:8px; font-size:13px;}
+  .feature{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:10px; border-radius:10px;}
+  .code-box{background:#05102a; padding:14px; border-radius:8px; font-family: monospace; font-size:12px; color:#bfeadc; max-height:360px; overflow:auto; margin-top:12px;}
+  @media(max-width:880px){.container{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<canvas id="bgCanvas"></canvas>
-<main class="card">
-  <section class="hero">
-    <h1>Boostez votre PC instantanément</h1>
-    <p>Supprimez les fichiers temporaires et libérez la mémoire pour un ordinateur plus réactif. Simple, sûr et rapide.</p>
-    <ul class="features">
-      <li><div class="dot">✓</div>Supprime fichiers temporaires</li>
-      <li><div class="dot">⚡</div>Optimisation rapide</li>
-      <li><div class="dot">🔒</div>Script sûr et non destructif</li>
-    </ul>
-    <div class="footnote">Fichier .bat généré automatiquement — vérifiez avant exécution.</div>
-  </section>
-
-  <aside class="panel">
-    <div class="preview">
-      <div style="font-weight:800;font-size:16px">memclean.bat</div>
-      <small>1 fichier · Téléchargement instantané</small>
-      <div class="stats">
-        <div class="stat">Windows</div>
-        <div class="stat">Safe</div>
-        <div class="stat">1 clic</div>
-      </div>
+<div class="container">
+  <div>
+    <h1>Ultimate Twix — Optimiseur PC Ultra-Max</h1>
+    <p class="lead">Boostez votre PC avec notre script Ultra-Max “premium gratuit”. Nettoyage, réparation, optimisation réseau, RAM, et plan Fibre.</p>
+    
+    <div class="feature-list">
+      <div class="feature">✅ Nettoyage fichiers temporaires et cache</div>
+      <div class="feature">✅ Vidage corbeille et logs Windows</div>
+      <div class="feature">✅ Reset DNS et Winsock</div>
+      <div class="feature">✅ SFC / DISM réparation système</div>
+      <div class="feature">✅ Plan d’alimentation Fibre (Ultimate Performance)</div>
+      <div class="feature">✅ Libération RAM inactive</div>
+      <div class="feature">✅ Nettoyage Prefetch et Miniatures</div>
     </div>
 
-    <button class="neon-btn" id="downloadBtn" onclick="downloadBat()">
-      <span class="glow"></span>
-      Télécharger le .bat
-    </button>
-    <div class="warn">⚠️ Sauvegarde ton travail avant d’exécuter.</div>
-    <pre id="preview" style="background:transparent;border:0;color:#cfefff;margin-top:8px;font-size:12px;white-space:pre-wrap;"></pre>
-  </aside>
-</main>
+    <button class="btn" id="downloadBtn">Télécharger Ultimate Twix .BAT</button>
+  </div>
+
+  <div>
+    <h2>Aperçu du script .BAT</h2>
+    <div class="code-box" id="codeBox">
+@echo off
+title Ultimate Twix Max Pro Optimiser
+color 0A
+
+:: Vérification droits admin
+NET SESSION >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+    exit
+)
+
+echo [1/10] Nettoyage fichiers temporaires...
+del /s /q "%temp%\*.*" 2>nul
+del /s /q "C:\Windows\Temp\*.*" 2>nul
+
+echo [2/10] Nettoyage corbeille...
+PowerShell.exe -NoProfile -Command "Clear-RecycleBin -Force"
+
+echo [3/10] Nettoyage cache Windows Update et Miniatures...
+del /s /q "%windir%\SoftwareDistribution\Download\*.*" 2>nul
+del /s /q "%localappdata%\Microsoft\Windows\Explorer\thumbcache_*.db" 2>nul
+
+echo [4/10] Nettoyage Prefetch...
+del /s /q "C:\Windows\Prefetch\*.*" 2>nul
+
+echo [5/10] Réinitialisation réseau...
+ipconfig /flushdns
+netsh winsock reset
+netsh int ip reset
+
+echo [6/10] Vérification fichiers système...
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+
+echo [7/10] Activation plan d'alimentation Fibre...
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+powercfg -setactive e9a42b02-d5df-448d-aa00-03f14749eb61
+
+echo [8/10] Libération RAM inactive...
+powershell -command "Get-Process | Where-Object {$_.Responding} | ForEach-Object { $_.CloseMainWindow() }"
+
+echo [9/10] Nettoyage logs Windows...
+for /f "tokens=*" %%G in ('wevtutil el') do wevtutil cl "%%G"
+
+echo [10/10] Optimisation terminée !
+pause
+    </div>
+  </div>
+</div>
 
 <script>
-  // contenu du .bat
-  const batContent = `@echo off
-echo ==========================================
-echo FlashClean — Nettoyage des fichiers temporaires
-echo ==========================================
-echo.
-echo Suppression des fichiers temporaires utilisateur...
-del /q /f %temp%\\* >nul 2>&1
-for /d %%D in (%temp%\\*) do rd /s /q "%%D" >nul 2>&1
-echo.
-echo Nettoyage termine. Appuyez sur une touche pour fermer.
+document.getElementById('downloadBtn').addEventListener('click', function(){
+    const batContent = `@echo off
+title Ultimate Twix Max Pro Optimiser
+color 0A
+
+NET SESSION >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+    exit
+)
+
+echo [1/10] Nettoyage fichiers temporaires...
+del /s /q "%temp%\\*.*" 2>nul
+del /s /q "C:\\Windows\\Temp\\*.*" 2>nul
+
+echo [2/10] Nettoyage corbeille...
+PowerShell.exe -NoProfile -Command "Clear-RecycleBin -Force"
+
+echo [3/10] Nettoyage cache Windows Update et Miniatures...
+del /s /q "%windir%\\SoftwareDistribution\\Download\\*.*" 2>nul
+del /s /q "%localappdata%\\Microsoft\\Windows\\Explorer\\thumbcache_*.db" 2>nul
+
+echo [4/10] Nettoyage Prefetch...
+del /s /q "C:\\Windows\\Prefetch\\*.*" 2>nul
+
+echo [5/10] Réinitialisation réseau...
+ipconfig /flushdns
+netsh winsock reset
+netsh int ip reset
+
+echo [6/10] Vérification fichiers système...
+sfc /scannow
+DISM /Online /Cleanup-Image /RestoreHealth
+
+echo [7/10] Activation plan d'alimentation Fibre...
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+powercfg -setactive e9a42b02-d5df-448d-aa00-03f14749eb61
+
+echo [8/10] Libération RAM inactive...
+powershell -command "Get-Process | Where-Object {$_.Responding} | ForEach-Object { $_.CloseMainWindow() }"
+
+echo [9/10] Nettoyage logs Windows...
+for /f "tokens=*" %%G in ('wevtutil el') do wevtutil cl "%%G"
+
+echo [10/10] Optimisation terminée !
 pause`;
 
-  // prévisualisation du script
-  document.getElementById('preview').textContent = batContent;
-
-  // fonction téléchargement
-  function downloadBat(){
-    const blob = new Blob([batContent], {type:'text/plain;charset=utf-8'});
+    const blob = new Blob([batContent], {type:'text/plain'});
+    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = "memclean.bat";
+    a.href = url;
+    a.download = "ultimate_twix_max_pro.bat";
     document.body.appendChild(a);
     a.click();
-    URL.revokeObjectURL(a.href);
-    a.remove();
-  }
-
-  // ---------- PARTICLES CANVAS ----------
-  const canvas = document.getElementById('bgCanvas');
-  const ctx = canvas.getContext('2d');
-  let w = canvas.width = window.innerWidth;
-  let h = canvas.height = window.innerHeight;
-
-  const particles = [];
-  const particleCount = 80;
-  for(let i=0;i<particleCount;i++){
-    particles.push({
-      x:Math.random()*w,
-      y:Math.random()*h,
-      r:Math.random()*3+1,
-      dx:(Math.random()-0.5)*0.5,
-      dy:(Math.random()-0.5)*0.5,
-      color:`rgba(0,229,255,${Math.random()*0.2})`
-    });
-  }
-
-  function animate(){
-    ctx.clearRect(0,0,w,h);
-    for(let p of particles){
-      p.x+=p.dx;p.y+=p.dy;
-      if(p.x>w)p.x=0;if(p.x<0)p.x=w;
-      if(p.y>h)p.y=0;if(p.y<0)p.y=h;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=p.color;
-      ctx.fill();
-    }
-    requestAnimationFrame(animate);
-  }
-  animate();
-  window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});
+    document.body.removeChild(a);
+});
 </script>
 </body>
 </html>
