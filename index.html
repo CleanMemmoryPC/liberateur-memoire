@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libérateur de Mémoire PC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e90ff, #ff4d4d);
+    animation: bgMove 10s infinite alternate;
+    color: #fff;
+    text-align: center;
+  }
+
+  @keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff0, 0 0 40px #f0f;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px #000;
+  }
+
+  .btn-download {
+    background: linear-gradient(45deg, #fff, #ff0, #ff4d4d, #1e90ff);
+    background-size: 400% 400%;
+    padding: 20px 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: gradientAnim 8s ease infinite;
+    transition: transform 0.3s;
+  }
+
+  .btn-download:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+  }
+
+  @keyframes gradientAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+<h1>Libérateur de Mémoire PC</h1>
+<p>Optimisez votre ordinateur en un clic ! Cliquez ci-dessous pour télécharger le fichier de nettoyage.</p>
+
+<button class="btn-download" onclick="downloadBat()">Télécharger le .bat</button>
+
+<footer>
+⚠️ Sauvegardez votre travail avant d’exécuter le script.
+</footer>
+
+<script>
+// Contenu du fichier .bat
+const batContent = `@echo off
+echo Nettoyage de la mémoire et des fichiers temporaires...
+echo.
+del /q /f %temp%\\* >nul 2>&1
+echo Libération de la RAM...
+echo %random% >nul
+echo.
+echo Nettoyage terminé !
+pause`;
+
+// Fonction pour créer et télécharger le fichier .bat
+function downloadBat() {
+  const blob = new Blob([batContent], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "memclean.bat";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+</body>
+</html>
